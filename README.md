@@ -9,4 +9,4 @@ This project try to simplify common operation with KeyTools such as:
 
 ## How to use
 
-Code is better than thousand words: check out `KeyToolsTest`!
+Code is better than thousand words: check out [`KeyToolsTest`](https://github.com/andreacomo/keytool-helper/blob/master/src/test/java/it/codingjam/keytool/services/KeyToolsTest.java)!
