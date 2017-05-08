@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.springframework.util.FileCopyUtils;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -42,6 +43,10 @@ public class KeyToolsTest {
                             .build()
                         .createInKeyStore("test", "456")
                         .writeTo(out);
+        } finally {
+            File keyStoreFile = new File("test.ks");
+            assertTrue(keyStoreFile.exists());
+            assertTrue(keyStoreFile.delete());
         }
     }
 
