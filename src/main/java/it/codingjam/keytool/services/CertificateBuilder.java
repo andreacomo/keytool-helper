@@ -110,7 +110,7 @@ public class CertificateBuilder {
         }
 
         public DistinguishNameBuilder email(String email) {
-            stringBuilder.append("E=").append(email).append(SEPARATOR);
+            stringBuilder.append("EMAILADDRESS=").append(email).append(SEPARATOR);
             return this;
         }
 

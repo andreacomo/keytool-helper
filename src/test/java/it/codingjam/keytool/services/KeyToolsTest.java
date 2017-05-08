@@ -40,6 +40,7 @@ public class KeyToolsTest {
                             .state("Toscana")
                             .locality("Prato")
                             .country("IT")
+                            .email("test@example.com")
                             .build()
                         .createInKeyStore("test", "456")
                         .writeTo(out);
