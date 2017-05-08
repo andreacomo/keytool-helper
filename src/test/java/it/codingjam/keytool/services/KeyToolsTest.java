@@ -74,11 +74,7 @@ public class KeyToolsTest {
         assertNotNull(csr);
         assertNotNull(csr.toPkcs10());
 
-        try (InputStream expectedCSR = this.getClass().getClassLoader().getResourceAsStream("keystore.csr")) {
-            byte[] expected = FileCopyUtils.copyToByteArray(expectedCSR);
-            byte[] actual = csr.writeToBytes();
-            assertTrue(Arrays.equals(expected, actual));
-        }
+        assertEquals("CN=Andrea Como, ST=Toscana, L=Prato, C=IT", csr.toPkcs10().getSubjectName().toString());
     }
 
     @Test
