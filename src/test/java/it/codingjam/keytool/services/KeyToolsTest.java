@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -75,7 +76,7 @@ public class KeyToolsTest {
         assertNotNull(csr.toPkcs10());
 
         try (InputStream expectedCSR = this.getClass().getClassLoader().getResourceAsStream("keystore.csr")) {
-            String expected = FileCopyUtils.copyToString(new InputStreamReader(expectedCSR));
+            String expected = FileCopyUtils.copyToString(new InputStreamReader(expectedCSR, StandardCharsets.UTF_8));
             String actual = csr.writeToString();
             assertEquals(expected, actual);
         }
