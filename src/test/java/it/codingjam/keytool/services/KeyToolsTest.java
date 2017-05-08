@@ -17,6 +17,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -76,9 +77,9 @@ public class KeyToolsTest {
         assertNotNull(csr.toPkcs10());
 
         try (InputStream expectedCSR = this.getClass().getClassLoader().getResourceAsStream("keystore.csr")) {
-            String expected = FileCopyUtils.copyToString(new InputStreamReader(expectedCSR, StandardCharsets.UTF_8));
-            String actual = csr.writeToString();
-            assertEquals(expected, actual);
+            byte[] expected = FileCopyUtils.copyToByteArray(expectedCSR);
+            byte[] actual = csr.writeToBytes();
+            assertTrue(Arrays.equals(expected, actual));
         }
     }
 
