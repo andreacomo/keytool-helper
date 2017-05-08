@@ -15,6 +15,7 @@ import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
@@ -50,7 +51,7 @@ public class KeyStoreAdapter {
 
     public CSR generateCSR(String alias, String password) throws KeyStoreException {
         try {
-            KeyPair keyPair = getKayPairFor(alias, password);
+            KeyPair keyPair = getKayPairFor(alias, password).orElseThrow(() -> new KeyStoreException("Cannot find key for alias  " + alias));;
             PKCS10 pkcs10 = new PKCS10(keyPair.getPublic()); // CSR container format
             Signature signature = Signature.getInstance("SHA256withRSA");
             signature.initSign(keyPair.getPrivate());
@@ -67,12 +68,12 @@ public class KeyStoreAdapter {
     }
 
     public CSRSigner signCSR(CSR csr, String alias, String password) throws KeyStoreException {
-        KeyPair keyPair = getKayPairFor(alias, password);
+        KeyPair keyPair = getKayPairFor(alias, password).orElseThrow(() -> new KeyStoreException("Cannot find key for alias  " + alias));
         return new CSRSigner(this, csr, keyPair, (X509Certificate) this.keyStore.getCertificate(alias));
     }
 
     public void importCAReply(P7B p7B, String alias, String password) throws KeyStoreException {
-        KeyPair keyPair = getKayPairFor(alias, password);
+        KeyPair keyPair = getKayPairFor(alias, password).orElseThrow(() -> new KeyStoreException("Cannot find key for alias  " + alias));;
         addToKeyStore(alias, keyPair.getPrivate(), password, p7B.getCertificates());
     }
 
@@ -96,11 +97,11 @@ public class KeyStoreAdapter {
         return new X500Name(x509.getSubjectX500Principal().getEncoded());
     }
 
-    public KeyPair getKayPairFor(String alias, String password) throws KeyStoreException {
+    public Optional<KeyPair> getKayPairFor(String alias, String password) throws KeyStoreException {
         try {
             Certificate certificate = this.keyStore.getCertificate(alias);
             Key key = this.keyStore.getKey(alias, password.toCharArray());
-            return new KeyPair(certificate.getPublicKey(), (PrivateKey) key);
+            return key != null ? Optional.of(new KeyPair(certificate.getPublicKey(), (PrivateKey) key)) : Optional.empty();
         } catch (NoSuchAlgorithmException | UnrecoverableKeyException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
             throw new KeyStoreException(e);
