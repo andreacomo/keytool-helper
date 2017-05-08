@@ -67,7 +67,7 @@ public class CertificateBuilder {
         return this.keyStoreAdapter;
     }
 
-    static class DistinguishNameBuilder {
+    public static class DistinguishNameBuilder {
 
         public static final String SEPARATOR = ",";
 
