@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/andreacomo/keytool-helper.svg?branch=master)](https://travis-ci.org/andreacomo/keytool-helper)
+
 # KeyTool Utility Project
 
 This project try to simplify common operation with KeyTools such as:
