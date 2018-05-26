@@ -4,7 +4,10 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by pizzo on 07/05/17.
+ * Key pair generator builder
+ *
+ * <br>
+ * Created by acomo on 07/05/17.
  */
 public class KeyPairBuilder {
 

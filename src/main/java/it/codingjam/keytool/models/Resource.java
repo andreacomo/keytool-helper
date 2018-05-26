@@ -5,11 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 /**
- * Created by pizzo on 08/05/17.
+ * Helper class for loading resources (either from <strong>file</strong> or <strong>classpath</strong>)
+ *
+ * <br>
+ * Created by acomo on 08/05/17.
  */
 public class Resource {
 
-    public static final String CLASSPATH_PREFIX = "classpath:";
+    private static final String CLASSPATH_PREFIX = "classpath:";
 
     private String ref;
 

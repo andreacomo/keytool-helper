@@ -12,7 +12,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 /**
- * Created by pizzo on 07/05/17.
+ * Helper builder for creating a <strong>new X509 certificate</strong>
+ *
+ * <br>
+ * Created by acomo on 07/05/17.
  */
 public class CertificateBuilder {
 
@@ -57,8 +60,6 @@ public class CertificateBuilder {
         info.set(X509CertInfo.VERSION, new CertificateVersion(CertificateVersion.V3));
         info.set(X509CertInfo.ALGORITHM_ID, new CertificateAlgorithmId(AlgorithmId.get("SHA256withRSA")));
 
-        //CertificateFactory.getInstance("X.509");
-
         X509CertImpl x509Cert = new X509CertImpl(info);
         x509Cert.sign(keyPair.getPrivate(), "SHA256withRSA");
 
@@ -69,7 +70,7 @@ public class CertificateBuilder {
 
     public static class DistinguishNameBuilder {
 
-        public static final String SEPARATOR = ",";
+        private static final String SEPARATOR = ",";
 
         private StringBuilder stringBuilder = new StringBuilder(200);
 

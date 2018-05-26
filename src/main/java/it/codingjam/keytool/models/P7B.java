@@ -10,11 +10,13 @@ import java.io.OutputStream;
 import java.security.cert.X509Certificate;
 
 /**
- * Contains chain of certificates (sign response)
+ * Sign response: contains chain of certificates
  *
+ * <br>
  * http://techxperiment.blogspot.it/2016/10/create-pkcs7p7b-format-in-java-program.html
  *
- * Created by pizzo on 07/05/17.
+ * <br>
+ * Created by acomo on 07/05/17.
  */
 public class P7B {
 

@@ -21,6 +21,9 @@ import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 /**
+ * Keystore adapter class: primary holder class for interacting with a keystore
+ *
+ * <br>
  * Created by pizzo on 06/05/17.
  */
 public class KeyStoreAdapter {

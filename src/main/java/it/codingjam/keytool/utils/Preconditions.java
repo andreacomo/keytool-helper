@@ -1,7 +1,9 @@
 package it.codingjam.keytool.utils;
 
 /**
- * Created by pizzo on 08/05/17.
+ * Helper preconditions checks
+ *
+ * Created by acomo on 08/05/17.
  */
 public class Preconditions {
 

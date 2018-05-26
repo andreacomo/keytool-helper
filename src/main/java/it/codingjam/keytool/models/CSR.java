@@ -10,7 +10,13 @@ import java.nio.charset.StandardCharsets;
 import java.security.SignatureException;
 
 /**
- * Created by pizzo on 07/05/17.
+ * Certificate Signing Request (CSR) holder
+ *
+ * <br>
+ * https://en.wikipedia.org/wiki/Certificate_signing_request
+ *
+ * <br>
+ * Created by acomo on 07/05/17.
  */
 public class CSR {
 

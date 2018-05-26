@@ -16,7 +16,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by pizzo on 07/05/17.
+ * Signer functionality for a CSR
+ *
+ * <br>
+ * Created by acomo on 07/05/17.
  */
 public class CSRSigner {
 

@@ -12,7 +12,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by pizzo on 06/05/17.
+ * Entrypoint for interacting with a keystore
+ *
+ * Created by acomo on 06/05/17.
  */
 public class KeyTools {
 
