@@ -9,7 +9,7 @@ This project try to simplify common operation with KeyTools such as:
 * generate a new *Certificate Sign Request* (**CSR**)
 * sign a CSR and produce a **certification chain** (p7b)
 
-##### NB:
+##### Disclaimer:
 In order to reduce dependencies, some classes of `sun.security` package has been used: 
 may not compile on JDKs different than OpenJDK/Oracle.
 
