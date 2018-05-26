@@ -36,9 +36,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:https://github.com/andreacomo/keytool-helper.git</connection>
-		<developerConnection>scm:git:https://github.com/andreacomo/keytool-helper.git</developerConnection>
-		<url>https://github.com/andreacomo/keytool-helper.git</url>
+		<connection>scm:git:https://andreacomo@github.com/andreacomo/keytool-helper.git</connection>
+		<developerConnection>scm:git:https://andreacomo@github.com/andreacomo/keytool-helper.git</developerConnection>
+		<url>https://andreacomo@github.com/andreacomo/keytool-helper.git</url>
 		<tag>HEAD</tag>
 	</scm>
 
