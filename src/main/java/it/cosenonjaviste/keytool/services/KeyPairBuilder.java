@@ -1,4 +1,4 @@
-package it.codingjam.keytool.services;
+package it.cosenonjaviste.keytool.services;
 
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;

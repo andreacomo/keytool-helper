@@ -1,8 +1,8 @@
-package it.codingjam.keytool.services;
+package it.cosenonjaviste.keytool.services;
 
-import it.codingjam.keytool.models.CSR;
-import it.codingjam.keytool.models.P7B;
-import it.codingjam.keytool.models.Resource;
+import it.cosenonjaviste.keytool.models.CSR;
+import it.cosenonjaviste.keytool.models.P7B;
+import it.cosenonjaviste.keytool.models.Resource;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

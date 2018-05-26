@@ -1,4 +1,4 @@
-package it.codingjam.keytool.utils;
+package it.cosenonjaviste.keytool.utils;
 
 /**
  * Helper preconditions checks

@@ -1,4 +1,4 @@
-package it.codingjam.keytool.models;
+package it.cosenonjaviste.keytool.models;
 
 import sun.security.pkcs.ContentInfo;
 import sun.security.pkcs.PKCS7;

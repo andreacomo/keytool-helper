@@ -1,6 +1,6 @@
-package it.codingjam.keytool.services;
+package it.cosenonjaviste.keytool.services;
 
-import it.codingjam.keytool.models.Resource;
+import it.cosenonjaviste.keytool.models.Resource;
 
 import java.io.IOException;
 import java.io.InputStream;

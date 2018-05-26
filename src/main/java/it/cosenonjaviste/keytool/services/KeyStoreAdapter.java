@@ -1,8 +1,8 @@
-package it.codingjam.keytool.services;
+package it.cosenonjaviste.keytool.services;
 
-import it.codingjam.keytool.models.CSR;
-import it.codingjam.keytool.models.P7B;
-import it.codingjam.keytool.utils.Preconditions;
+import it.cosenonjaviste.keytool.models.CSR;
+import it.cosenonjaviste.keytool.models.P7B;
+import it.cosenonjaviste.keytool.utils.Preconditions;
 import sun.security.pkcs10.PKCS10;
 import sun.security.x509.X500Name;
 

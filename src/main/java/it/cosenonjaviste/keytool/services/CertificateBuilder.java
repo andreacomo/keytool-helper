@@ -1,6 +1,6 @@
-package it.codingjam.keytool.services;
+package it.cosenonjaviste.keytool.services;
 
-import it.codingjam.keytool.utils.Preconditions;
+import it.cosenonjaviste.keytool.utils.Preconditions;
 import sun.security.x509.*;
 
 import java.io.IOException;
