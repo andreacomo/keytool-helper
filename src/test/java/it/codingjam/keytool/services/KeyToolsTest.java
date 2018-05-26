@@ -6,16 +6,14 @@ import it.codingjam.keytool.models.Resource;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.springframework.util.FileCopyUtils;
+import sun.security.validator.ValidatorException;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.time.temporal.ChronoUnit;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
@@ -62,7 +60,7 @@ public class KeyToolsTest {
         assertTrue(certificate instanceof X509Certificate);
 
         X509Certificate x509Certificate = (X509Certificate) certificate;
-        assertEquals("CN=Andrea Como, ST=Toscana, L=Prato, C=IT", x509Certificate.getSubjectDN().getName());
+        assertEquals("CN=Andrea Como, ST=Toscana, L=Prato, C=IT, EMAILADDRESS=test@example.com", x509Certificate.getSubjectDN().getName());
     }
 
     @Test
@@ -75,7 +73,7 @@ public class KeyToolsTest {
         assertNotNull(csr);
         assertNotNull(csr.toPkcs10());
 
-        assertEquals("CN=Andrea Como, ST=Toscana, L=Prato, C=IT", csr.toPkcs10().getSubjectName().toString());
+        assertEquals("CN=Andrea Como, ST=Toscana, L=Prato, C=IT, EMAILADDRESS=test@example.com", csr.toPkcs10().getSubjectName().toString());
     }
 
     @Test
@@ -106,14 +104,28 @@ public class KeyToolsTest {
         Resource ca = Resource.from("classpath:ca.ks");
         KeyStoreAdapter caKeyStore = KeyTools.keyStoreFrom(ca, "ca");
 
-        Resource signedResource = Resource.from("classpath:signed-by-ca.ks");
+        Resource signedResource = Resource.from("classpath:keystore-signed-by-ca.ks");
         KeyStoreAdapter signedKeyStore = KeyTools.keyStoreFrom(signedResource, "1234");
         signedKeyStore.verifyWithTrustStore("test", caKeyStore.toKeyStore());
     }
 
     @Test
+    public void shouldNotVerifyExpiredSignedCertificate() throws Exception {
+        Resource ca = Resource.from("classpath:ca.ks");
+        KeyStoreAdapter caKeyStore = KeyTools.keyStoreFrom(ca, "ca");
+
+        Resource signedResource = Resource.from("classpath:keystore-signed-by-ca-expired.ks");
+        KeyStoreAdapter signedKeyStore = KeyTools.keyStoreFrom(signedResource, "1234");
+
+        expectedException.expect(ValidatorException.class);
+        expectedException.expectMessage("PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed");
+
+        signedKeyStore.verifyWithTrustStore("test", caKeyStore.toKeyStore());
+    }
+
+    @Test
     public void shouldNotVerifySignedCertificate() throws Exception {
-        Resource ca = Resource.from("classpath:signed-by-ca.ks");
+        Resource ca = Resource.from("classpath:keystore-signed-by-ca.ks");
         KeyStoreAdapter caKeyStore = KeyTools.keyStoreFrom(ca, "1234");
 
         Resource signedResource = Resource.from("classpath:ca.ks");
