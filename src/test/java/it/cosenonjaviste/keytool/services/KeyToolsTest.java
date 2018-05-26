@@ -6,13 +6,11 @@ import it.cosenonjaviste.keytool.models.Resource;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import sun.security.validator.ValidatorException;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
+import java.security.KeyStoreException;
+import java.security.cert.*;
 import java.time.temporal.ChronoUnit;
 
 import static org.junit.Assert.*;
@@ -117,7 +115,7 @@ public class KeyToolsTest {
         Resource signedResource = Resource.from("classpath:keystore-signed-by-ca-expired.ks");
         KeyStoreAdapter signedKeyStore = KeyTools.keyStoreFrom(signedResource, "1234");
 
-        expectedException.expect(ValidatorException.class);
+        expectedException.expect(CertificateException.class);
         expectedException.expectMessage("PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed");
 
         signedKeyStore.verifyWithTrustStore("test", caKeyStore.toKeyStore());
