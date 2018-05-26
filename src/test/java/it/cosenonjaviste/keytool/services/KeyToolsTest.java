@@ -116,7 +116,7 @@ public class KeyToolsTest {
         KeyStoreAdapter signedKeyStore = KeyTools.keyStoreFrom(signedResource, "1234");
 
         expectedException.expect(CertificateException.class);
-        expectedException.expectMessage("PKIX path validation failed: java.security.cert.CertPathValidatorException: timestamp check failed");
+        expectedException.expectMessage("PKIX path validation failed");
 
         signedKeyStore.verifyWithTrustStore("test", caKeyStore.toKeyStore());
     }
