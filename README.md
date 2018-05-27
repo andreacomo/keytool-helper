@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/andreacomo/keytool-helper.svg?branch=master)](https://travis-ci.org/andreacomo/keytool-helper)
-[![Released Version](https://img.shields.io/maven-central/v/it.cosenonjaviste/heytool-helper.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22it.cosenonjaviste%22%20a%3A%22keytool-helper%22)
+[![Released Version](https://img.shields.io/maven-central/v/it.cosenonjaviste/keytool-helper.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22it.cosenonjaviste%22%20a%3A%22keytool-helper%22)
 
 # KeyTool Utility Project
 
