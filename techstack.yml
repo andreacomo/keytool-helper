@@ -2,7 +2,7 @@ repo_name: andreacomo/keytool-helper
 report_id: 1b48e0543e085879ae8bc2085d377630
 version: 0.1
 repo_type: Public
-timestamp: '2023-12-25T20:40:31+00:00'
+timestamp: '2024-01-05T08:15:25+00:00'
 requested_by: andreacomo
 provider: github
 branch: master
@@ -30,6 +30,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/andreacomo/keytool-helper
   detection_source: Repo Metadata
 - name: JUnit
   description: A programmer-oriented testing framework for Java
@@ -54,6 +55,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/460/Lu6cGu0z_400x400.png
+  detection_source_url: https://github.com/andreacomo/keytool-helper/blob/master/.travis.yml
   detection_source: ".travis.yml"
   last_updated_by: andrea.como
   last_updated_on: 2017-05-07 23:35:24.000000000 Z
@@ -66,6 +68,7 @@ tools:
   category: Application Hosting
   sub_category: Platform as a Service
   image_url: https://img.stackshare.io/service/3276/xWt1RFo6_400x400.jpg
+  detection_source_url: https://github.com/andreacomo/keytool-helper/blob/master/src/main/resources/application.properties
   detection_source: src/main/resources/application.properties
 - name: junit:junit
   description: JUnit is a unit testing framework for Java
